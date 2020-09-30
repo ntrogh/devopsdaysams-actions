@@ -44,7 +44,7 @@ jobs:
             resource-group: devopsdaysams
             dns-name-label: wallofzen1
             image: docker.pkg.github.com/ntrogh/devopsdaysams-actions/wallofzen:${{ github.sha }}
-            registry-login-server: ${{ docker.pkg.github.com }}
+            registry-login-server: docker.pkg.github.com
             registry-username: ${{ github.actor }}
             registry-password: ${{ secrets.GITHUB_TOKEN }}
             name: ntwallofzen1
