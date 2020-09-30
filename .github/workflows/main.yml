@@ -30,3 +30,22 @@ jobs:
           repository: ntrogh/devopsdaysams-actions/wallofzen
           tags: latest,${{ github.sha }}
           tag_with_ref: true
+
+  deploy:
+      runs-on: ubuntu-latest
+      needs: build
+
+      steps:
+        - uses: azure/login@v1.1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+        - name: 'Deploy to Azure Container Instances'
+        - uses: 'azure/aci-deploy@v1'
+          with:
+            resource-group: contoso
+            dns-name-label: wallofzen
+            image: docker.pkg.github.com/ntrogh/devopsdaysams-actions/wallofzen:${{ github.sha }}
+            registry-username: ${{ github.actor }}
+            registry-password: ${{ secrets.GITHUB_TOKEN }}
+            name: ntwallofzen1
+            location: 'west europe'
