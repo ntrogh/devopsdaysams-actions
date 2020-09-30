@@ -27,6 +27,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: $GITHUB_REPOSITORY/WallOfZen
+          repository: ntrogh/devopsdaysams-actions/WallOfZen
           tags: latest,${{ github.sha }}
           tag_with_ref: true
