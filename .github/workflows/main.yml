@@ -49,4 +49,4 @@ jobs:
             registry-password: ${{ secrets.GITHUB_TOKEN }}
             name: ntwallofzen1
             location: 'west europe'
-          environment-variables: BASE_URL=https://devopsdaysams.azurewebsites.net/api/AddToWall
+            environment-variables: BASE_URL=https://devopsdaysams.azurewebsites.net/api/AddToWall
