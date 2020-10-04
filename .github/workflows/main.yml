@@ -57,4 +57,5 @@ jobs:
     
         - name: 'Invoke API to post on Zen wall'
           run: |
-            curl '${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}'
+            wget '${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}'
+
