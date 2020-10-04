@@ -54,7 +54,12 @@ jobs:
 
         - name: 'Output API url'
           run: echo "API url is ${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}"
-    
+
+        - name: Sleep
+          uses: juliangruber/sleep-action@v1
+          with:
+            time: 10s
+
         - name: 'Invoke API to post on Zen wall'
           uses: CamiloGarciaLaRotta/watermelon-http-client@v1
           with:
