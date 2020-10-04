@@ -27,7 +27,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: ntrogh/devopsdaysams-actions/wallofzen
+          repository: github-coding-challenge/devopsdaysams-actions/wallofzen
           tags: latest,${{ github.sha }}
           tag_with_ref: true
 
@@ -43,7 +43,7 @@ jobs:
           with:
             resource-group: devopsdaysams
             dns-name-label: wallofzen1
-            image: docker.pkg.github.com/ntrogh/devopsdaysams-actions/wallofzen:${{ github.sha }}
+            image: docker.pkg.github.com/github-coding-challenge/devopsdaysams-actions/wallofzen:${{ github.sha }}
             registry-login-server: docker.pkg.github.com
             registry-username: ${{ github.actor }}
             registry-password: ${{ secrets.GITHUB_TOKEN }}
