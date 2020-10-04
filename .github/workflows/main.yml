@@ -56,6 +56,9 @@ jobs:
           run: echo "API url is ${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}"
     
         - name: 'Invoke API to post on Zen wall'
-          run: |
-            wget '${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}'
+          uses: CamiloGarciaLaRotta/watermelon-http-client@v1
+          with:
+            url: '${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}'
 
+        - name: 'Output Zen Wall url'
+          run: echo 'Check your quote (${{ fromJSON(steps.invoke-api.outputs.response).quote }}) on the Zen Wall https://aka.ms/wallofzen'
