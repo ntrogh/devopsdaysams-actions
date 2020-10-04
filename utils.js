@@ -8,6 +8,7 @@ const utils = {
         const response = await fetch(`${baseUrl}?repoUrl=${repoUrl}`, { method: 'POST' });
         const message = await response.text();
         if (response.status != 200) {
+            console.log(message);
             throw new Error(
                 `Received ${response.status} status code. Reason: ${message}`
             );

@@ -20,6 +20,7 @@ app.get("/addtowall", async (req, res, next) => {
         console.log('Got zen');
         res.json(response);
     } catch (error) {
+        console.log(error);
         res.status(500).send(error);
     };
 });
