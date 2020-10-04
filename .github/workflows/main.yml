@@ -47,7 +47,7 @@ jobs:
             image: ntrogh/wallofzen1:${{ github.sha }}
             name: ntwallofzen1
             location: 'west europe'
-            environment-variables: BASE_URL=https://52.178.79.163/api/AddToWall
+            environment-variables: BASE_URL=https://devopsdaysams.azurewebsites.net/api/AddToWall
 
         - name: 'Output ACI url'
           run: echo "ACI URL is ${{ steps.aci-deploy.outputs.app-url }}"
@@ -59,6 +59,7 @@ jobs:
           uses: CamiloGarciaLaRotta/watermelon-http-client@v1
           with:
             url: '${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}'
+            headers: '{ "User-Agent": "aci", "Accept": "*/*" }'
 
         - name: 'Output Zen Wall url'
           run: echo 'Check your quote (${{ fromJSON(steps.invoke-api.outputs.response).quote }}) on the Zen Wall https://aka.ms/wallofzen'
