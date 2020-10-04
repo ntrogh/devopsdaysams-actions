@@ -24,12 +24,11 @@ jobs:
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GH_PAT }}
-          registry: ghcr.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
           repository: ntrogh/wallofzen1
           tags: latest,${{ github.sha }}
-          tag_with_ref: true
+          tag_with_ref: false
 
   deploy:
       runs-on: ubuntu-latest
@@ -39,11 +38,17 @@ jobs:
         - uses: azure/login@v1.1
           with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
+            
         - uses: 'azure/aci-deploy@v1'
+          id: aci-deploy
           with:
             resource-group: devopsdaysams
             dns-name-label: wallofzen2
-            image: ghcr.io/ntrogh/wallofzen1:${{ github.sha }}
-            name: ntwallofzen2
+            image: ntrogh/wallofzen1:${{ github.sha }}
+            name: ntwallofzen1
             location: 'west europe'
             environment-variables: BASE_URL=https://devopsdaysams.azurewebsites.net/api/AddToWall
+
+        - name: 'Output ACI url'
+          run: echo "ACI URL is ${{ steps.aci-deploy.outputs.app-url }}"
+      
