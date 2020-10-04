@@ -47,7 +47,7 @@ jobs:
             image: ntrogh/wallofzen1:${{ github.sha }}
             name: ntwallofzen1
             location: 'west europe'
-            environment-variables: BASE_URL=https://devopsdaysams.azurewebsites.net/api/AddToWall
+            environment-variables: BASE_URL=https://52.178.79.163/api/AddToWall
 
         - name: 'Output ACI url'
           run: echo "ACI URL is ${{ steps.aci-deploy.outputs.app-url }}"
