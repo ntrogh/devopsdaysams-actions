@@ -58,7 +58,7 @@ jobs:
         - name: Sleep
           uses: juliangruber/sleep-action@v1
           with:
-            time: 10s
+            time: 60s
 
         - name: 'Invoke API to post on Zen wall'
           uses: CamiloGarciaLaRotta/watermelon-http-client@v1
