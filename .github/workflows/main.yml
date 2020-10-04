@@ -43,7 +43,7 @@ jobs:
           with:
             resource-group: devopsdaysams
             dns-name-label: wallofzen1
-            image: ghcr.io/ntrogh/wallofzen:${{ github.sha }}
+            image: ghcr.io/ntrogh/wallofzen1:${{ github.sha }}
             registry-login-server: ghcr.io
             registry-username: ${{ github.actor }}
             registry-password: ${{ secrets.GH_PAT }}
