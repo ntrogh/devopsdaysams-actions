@@ -42,8 +42,8 @@ jobs:
         - uses: 'azure/aci-deploy@v1'
           with:
             resource-group: devopsdaysams
-            dns-name-label: wallofzen1
+            dns-name-label: wallofzen2
             image: ghcr.io/ntrogh/wallofzen1:${{ github.sha }}
-            name: ntwallofzen1
+            name: ntwallofzen2
             location: 'west europe'
             environment-variables: BASE_URL=https://devopsdaysams.azurewebsites.net/api/AddToWall
