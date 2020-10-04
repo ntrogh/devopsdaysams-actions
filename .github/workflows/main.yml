@@ -56,11 +56,8 @@ jobs:
           run: echo "API url is ${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}"
     
         - name: 'Invoke API to post on Zen wall'
-          id: invoke-api
-          uses: fjogeleit/http-request-action@master
-          with:
-            url: "${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}"
-            method: "GET"
+          run: |
+            curl ${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}
 
         - name: 'Output Zen Wall url'
           run: echo 'Check your quote (${{ fromJSON(steps.invoke-api.outputs.response).quote }}) on the Zen Wall https://aka.ms/wallofzen'
