@@ -27,7 +27,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GH_PAT }}
           registry: ghcr.io
-          repository: ghcr.io/ntrogh
+          repository: ntrogh/wallofzen1
           tags: latest,${{ github.sha }}
           tag_with_ref: true
 
