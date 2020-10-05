@@ -55,6 +55,10 @@ jobs:
         - name: 'Output API url'
           run: echo "API url is ${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}"
 
+        - name: Curl API
+          run: |
+            curl "${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}"
+  
         - name: 'Invoke API to post on Zen wall'
           id: invoke-api
           uses: CamiloGarciaLaRotta/watermelon-http-client@v1
