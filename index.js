@@ -18,6 +18,8 @@ app.get("/addtowall", async (req, res, next) => {
         let response = await addToWall(baseUrl, repoUrl);
 
         console.log('Got zen');
+        console.log(response);
+        
         res.json(response);
     } catch (error) {
         console.log(error);
