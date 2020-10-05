@@ -57,11 +57,11 @@ jobs:
 
         - name: 'Invoke API to post on Zen wall'
           id: invoke-api
-          uses: CamiloGarciaLaRotta/watermelon-http-client@v1
+          uses: fjogeleit/http-request-action@master
           with:
-            url: '${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}'
-            headers: '{ "User-Agent": "aci", "Accept": "*/*" }'
-            verbose: true
+            url: "${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}"
+            customHeaders: '{ "User-Agent": "aci", "Accept": "*/*" }'
+            method: "GET"
 
         - name: 'Output Zen Wall url'
           run: echo 'Check your quote (${{ fromJSON(steps.invoke-api.outputs.response).quote }}) on the Zen Wall https://aka.ms/wallofzen'
