@@ -67,7 +67,10 @@ jobs:
             method: "GET"
       
         - name: 'Output Zen Wall url - full'
-          run: echo 'Check your quote (${{ toJSON(steps.invoke-api.outputs.response) }}) on the Zen Wall https://aka.ms/wallofzen'
+          run: echo 'Check your quote (${{ steps.invoke-api.outputs.response }}) on the Zen Wall https://aka.ms/wallofzen'
 
         - name: 'Output Zen Wall url'
           run: echo 'Check your quote (${{ fromJSON(steps.invoke-api.outputs.response) }}) on the Zen Wall https://aka.ms/wallofzen'
+
+        - name: 'test JSON'
+          run: echo '${{ fromJSON(\'{"test": "value"}\') }}'
