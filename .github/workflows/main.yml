@@ -61,6 +61,7 @@ jobs:
             time: 60s
 
         - name: 'Invoke API to post on Zen wall'
+          id: invoke-api
           uses: CamiloGarciaLaRotta/watermelon-http-client@v1
           with:
             url: '${{ steps.aci-deploy.outputs.app-url }}addtowall?repoUrl=https://github.com/${{ github.repository }}'
