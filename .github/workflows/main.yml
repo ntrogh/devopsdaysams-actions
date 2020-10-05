@@ -67,5 +67,5 @@ jobs:
             headers: '{ "User-Agent": "aci", "Accept": "*/*" }'
             method: "GET"
 
-        - name: 'Output Zen Wall url'
-          run: echo 'Check your quote (${{ steps.invoke-api.outputs.response }}) on the Zen Wall https://aka.ms/wallofzen'
+            - name: 'Output Zen Wall url'
+            run: echo 'Check your quote (${{ fromJSON(steps.invoke-api.outputs.response).quote }}) on the Zen Wall https://aka.ms/wallofzen'
